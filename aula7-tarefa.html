@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Aula - Funções e Eventos</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script>
+        
+            var tarefas = [];
+            var auxHtml = "";
+               
+            window.onload = function(){
+            document.getElementById('btinserir').onclick = function v_tarefas(){
+                
+                let tarefa = document.getElementById('tarefa').value
+                let verificacao = tarefas.includes(tarefa);
+                let listatarefas = tarefa ;
+
+
+                    if(verificacao==true){
+                        alert("Tarefa repetida");                  
+                    }else{
+                        alert("Tarefa Inserida com sucesso!");
+                        tarefas.push(tarefa);
+                    }
+                    document.getElementById('listatarefas').innerHTML = 'Ultima tarefa adicionada: '+listatarefas;
+                }
+                document.getElementById('btmostrar').onclick = function mostrar_tarefa(){
+                    let tarefa = document.getElementById('tarefa').value;
+                    let mostrartarefa = tarefas;
+                   document.getElementById('mostrartarefa').innerHTML = 'Lista de Tarefas: </br>'+mostrartarefa;
+            }
+            }
+        
+    </script>
+    <style>
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+       <h1> Lista de Tarefas </h1>
+    </header>
+    
+    <main>
+        <section>
+        <div class="container">
+        <div class="form-group">
+        <input type="text" id="tarefa" class="form-control" placeholder="Tarefas"/><br>
+        <p id="listatarefas">Ultima Tarefa Adicionada:</p>
+        <button id="btinserir" class="btn btn-success">Inserir</button>
+        <button id="btmostrar" class="btn btn-warning">Mostrar Tarefas</button>
+        <br>
+        
+        <br><p id="mostrartarefa">Lista de Tarefas:</p>
+       
+        </div>
+        <div class="container">
+        </section>
+   
+    </main>
+
+    <footer>
+       
+    </footer>
+</body>
+</html>
